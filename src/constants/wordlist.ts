@@ -2997,7 +2997,6 @@ export const WORDS = [
 "yairs",
 "yamph",
 "yappy",
-"Yaqui",
 "yarfa",
 "yarfy",
 "yarta",
