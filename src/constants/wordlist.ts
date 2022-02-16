@@ -1007,7 +1007,6 @@ export const WORDS = [
 "fykie",
 "fykit",
 "fyown",
-"g$oot",
 "gaalo",
 "gablo",
 "gaein",
