@@ -783,7 +783,6 @@ export const WORDS = [
 "eetem",
 "efter",
 "eggit",
-"Egypt",
 "eikie",
 "eikin",
 "eikit",
