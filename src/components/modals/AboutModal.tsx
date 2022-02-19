@@ -16,19 +16,19 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
           i18nKey="aboutAuthorSentence"
           values={{ language: CONFIG.language, author: CONFIG.author }}
         >
-          This is an open source clone of the game Wordle adapted to
+          This is oor shottie at a Wordle for Scots
           {CONFIG.language} by
           <a href={CONFIG.authorWebsite} className="underline font-bold">
             {CONFIG.author}
           </a>{' '}
         </Trans>
         <Trans i18nKey="aboutCodeSentence">
-          Check out
+          See
           <a
             href="https://github.com/hannahcode/wordle"
             className="underline font-bold"
           >
-            the original code
+            the oreeginal code
           </a>
           by
           <a
@@ -37,32 +37,32 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
           >
             Hannah Park
           </a>
-          or have a look at
+          or hae a leuk tae
           <a
             href="https://github.com/roedoejet/AnyLanguage-Wordle"
             className="underline font-bold"
           >
             Aidan Pine's fork
           </a>
-          and customize it for another language!
+          and sort it for anither leed!
         </Trans>
         <Trans
           i18nKey="aboutDataSentence"
           values={{ wordListSource: CONFIG.wordListSource }}
         >
-          The words for this game were sourced from
+          The wirds for this gemm is fae
           <a href={CONFIG.wordListSourceLink} className="underline font-bold">
             {CONFIG.wordListSource}
           </a>
           .
         </Trans>
         <Trans i18nKey="aboutOriginalSentence">
-          You can also
+          Ye can 
           <a
             href="https://www.powerlanguage.co.uk/wordle/"
             className="underline font-bold"
           >
-            play the original here
+            play the oreeginal here and aw
           </a>
         </Trans>
       </p>
