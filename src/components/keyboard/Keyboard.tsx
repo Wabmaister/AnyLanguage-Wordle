@@ -1,26 +1,22 @@
+import { KeyValue } from '../../lib/keyboard'
 import { getStatuses } from '../../lib/statuses'
 import { Key } from './Key'
 import { useEffect } from 'react'
-import { ENTER_TEXT, DELETE_TEXT } from '../../constants/strings'
+import { ORTHOGRAPHY } from '../../constants/orthography'
+import { useTranslation } from 'react-i18next'
 
 type Props = {
   onChar: (value: string) => void
   onDelete: () => void
   onEnter: () => void
-  guesses: string[]
-  isRevealing?: boolean
+  guesses: string[][]
 }
 
-export const Keyboard = ({
-  onChar,
-  onDelete,
-  onEnter,
-  guesses,
-  isRevealing,
-}: Props) => {
+export const Keyboard = ({ onChar, onDelete, onEnter, guesses }: Props) => {
+  const { t } = useTranslation()
   const charStatuses = getStatuses(guesses)
 
-  const onClick = (value: string) => {
+  const onClick = (value: KeyValue) => {
     if (value === 'ENTER') {
       onEnter()
     } else if (value === 'DELETE') {
@@ -36,12 +32,14 @@ export const Keyboard = ({
         onEnter()
       } else if (e.code === 'Backspace') {
         onDelete()
-      } else {
-        const key = e.key.toUpperCase()
-        if (key.length === 1 && key >= 'A' && key <= 'Z') {
-          onChar(key)
-        }
       }
+      // Take away key event listener for now
+      // else {
+      //   const key = e.key.toUpperCase()
+      //   if (key.length === 1 && key >= 'A' && key <= 'Z') {
+      //     onChar(key)
+      //   }
+      // }
     }
     window.addEventListener('keyup', listener)
     return () => {
@@ -52,42 +50,47 @@ export const Keyboard = ({
   return (
     <div>
       <div className="flex justify-center mb-1">
-        {['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'].map((key) => (
-          <Key
-            value={key}
-            key={key}
-            onClick={onClick}
-            status={charStatuses[key]}
-            isRevealing={isRevealing}
-          />
-        ))}
+        {ORTHOGRAPHY.slice(0, Math.floor(ORTHOGRAPHY.length * 0.4)).map(
+          (char) => (
+            <Key
+              key={char}
+              value={char}
+              onClick={onClick}
+              status={charStatuses[char]}
+            />
+          )
+        )}
       </div>
       <div className="flex justify-center mb-1">
-        {['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'].map((key) => (
+        {ORTHOGRAPHY.slice(
+          Math.floor(ORTHOGRAPHY.length * 0.4),
+          Math.floor(ORTHOGRAPHY.length * 0.7)
+        ).map((char) => (
           <Key
-            value={key}
-            key={key}
+            key={char}
+            value={char}
             onClick={onClick}
-            status={charStatuses[key]}
-            isRevealing={isRevealing}
+            status={charStatuses[char]}
           />
         ))}
       </div>
       <div className="flex justify-center">
-        <Key width={65.4} value="ENTER" onClick={onClick}>
-          {ENTER_TEXT}
+        <Key key="enterKey" width={65.4} value="ENTER" onClick={onClick}>
+          {t('enterKey')}
         </Key>
-        {['Z', 'X', 'C', 'V', 'B', 'N', 'M'].map((key) => (
+        {ORTHOGRAPHY.slice(
+          Math.floor(ORTHOGRAPHY.length * 0.7),
+          ORTHOGRAPHY.length
+        ).map((char) => (
           <Key
-            value={key}
-            key={key}
+            key={char}
+            value={char}
             onClick={onClick}
-            status={charStatuses[key]}
-            isRevealing={isRevealing}
+            status={charStatuses[char]}
           />
         ))}
-        <Key width={65.4} value="DELETE" onClick={onClick}>
-          {DELETE_TEXT}
+        <Key key="deleteKey" width={65.4} value="DELETE" onClick={onClick}>
+          {t('deleteKey')}
         </Key>
       </div>
     </div>
