@@ -62,7 +62,7 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
             href="https://www.powerlanguage.co.uk/wordle/"
             className="underline font-bold"
           >
-            play the oreeginal here and aw
+            play the oreeginal here
           </a>
         </Trans>
       </p>
