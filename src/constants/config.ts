@@ -5,7 +5,7 @@ export const CONFIG = {
   author: 'Scots-Online', // Put your name here so people know who made this Wordle!
   authorWebsite: 'www.scots-online.org', // Put a link to your website or social media here
   wordListSource: 'Scots Online Dictionary', // Describe the source material for your words here
-  wordListSourceLink: https://'www.scots-online.dictionary', // Put a link to the source material for your words here
+  wordListSourceLink: 'www.scots-online.dictionary', // Put a link to the source material for your words here
   //
   // THESE NEXT SETTINGS ARE FOR ADVANCED USERS
   //
