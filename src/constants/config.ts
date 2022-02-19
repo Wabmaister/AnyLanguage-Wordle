@@ -3,8 +3,8 @@ export const CONFIG = {
   language: '', // This changes the display name for your language
   wordLength: 5, // This sets how long each word is based on how many characters (as defined in orthography.ts) are in each word
   author: 'Scots-Online', // Put your name here so people know who made this Wordle!
-  authorWebsite: 'https://www.scots-online.org', // Put a link to your website or social media here
-  wordListSource: 'https://Scots Online Dictionary', // Describe the source material for your words here
+  authorWebsite: 'www.scots-online.org', // Put a link to your website or social media here
+  wordListSource: 'Scots Online Dictionary', // Describe the source material for your words here
   wordListSourceLink: https://'www.scots-online.dictionary', // Put a link to the source material for your words here
   //
   // THESE NEXT SETTINGS ARE FOR ADVANCED USERS
